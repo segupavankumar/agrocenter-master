@@ -1,0 +1,536 @@
+{% load google_translate %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AGROCENTRE</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link rel="stylesheet" href="{%static 'css/shop_home.css'%}" />
+    <link rel="stylesheet" href="{%static 'css/footer.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/icofont.min.css'%}" />
+    <link rel="stylesheet" href="{% static 'css/trail.css'%}" />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Acme&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+      integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+      integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+      integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+      integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <span class="navbar-toggler-icon"></span>
+    <!-- ======= Header -THIS SECTION CONTAINS CODE FOR NAVBAR ======= -->
+    <header id="header" >
+      <div class="container d-flex">
+        <div class="logo mr-auto">
+          <h1 class="text-light">
+            <a href="/"><span>Agro</span>_center</a>
+          </h1>
+        </div>
+
+        <nav class="nav-menu d-none d-lg-block">
+          <ul>
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li>
+              <a href="/shop">Shop</a>
+            </li>
+            <li><a href="javascript:window.location=URL();">Profile</a></li>
+            {%if user.is_authenticated%}
+            <li><a href="/user/logout">logout</a></li>
+            {%endif%}
+
+          </ul>
+        </nav>
+        <!-- .nav-menu -->
+      </div>
+    </header>
+
+    <section class="container-fluid row">
+      <div class="col-lg-2 mt-3" style="padding: 10px 10px">
+        <div
+          class="title_filter text-center"
+          style="text-decoration: underline"
+        >
+          FILTER
+        </div>
+        <div style="margin-bottom:20px;margin-top:20px" class="search">
+          <form  method="POST">
+               {% csrf_token %}
+              <input type="text" placeholder=" Search with crop name" name="crop" >
+              <button type = "submit"><i class="fa fa-search"style="font-size: 18px;"></i></button>
+          </form>
+        </div>
+        <!-- Section: Condition -->
+        <form method="POST">
+          {%csrf_token%}
+          <section class="mb-3">
+            <h6 class="title_filter mb-3">Categories</h6>
+
+            <div>
+              <input type="checkbox" name="cat" value="Fruits" />
+              <label for="cat1">Fruits</label><br />
+            </div>
+
+            <div>
+              <input type="checkbox" name="cat" value="Vegetabels" />
+              <label for="cat2">Vegetables</label><br />
+            </div>
+
+            <div>
+              <input type="checkbox" name="cat" value="dairy" />
+              <label for="cat3">Diary</label><br />
+            </div>
+
+            <div>
+              <input type="checkbox" name="cat" value="hybrid" />
+              <label for="cat4">Hybrid</label><br />
+            </div>
+          </section>
+          <!-- Section: Condition -->
+
+          <!-- Section: Star -->
+          <section class="mb-3">
+            <h6 class="title_filter mb-3">Avg Customer Review</h6>
+            <input name="sort" value="star4" type="checkbox" />
+            <label for="star1">
+              <i class="fa fa-star fa-sm text-primary"></i>
+              <i class="fa fa-star fa-sm text-primary"></i>
+              <i class="fa fa-star fa-sm text-primary"></i>
+              <i class="fa fa-star fa-sm text-primary"></i>
+              & above
+            </label>
+            <br />
+            <input name="sort" value="star3" type="checkbox" />
+            <label for="star2">
+              <i class="fa fa-star fa-sm text-primary"></i>
+              <i class="fa fa-star fa-sm text-primary"></i>
+              <i class="fa fa-star fa-sm text-primary"></i>
+
+              & above
+            </label>
+            <br />
+            <input name="sort" value="star2" type="checkbox" />
+            <label for="star3">
+              <i class="fa fa-star fa-sm text-primary"></i>
+              <i class="fa fa-star fa-sm text-primary"></i>
+
+              & above
+            </label>
+            <br />
+            <input name="sort" value="star1" type="checkbox" />
+            <label for="star4">
+              <i class="fa fa-star fa-sm text-primary"></i>
+
+              & above
+            </label>
+          </section>
+          <!-- Section: Star -->
+
+          <!-- Section Price -->
+          <section class="mb-3">
+            <h6 class="title_filter mb-3">Price</h6>
+
+            <div class="mb-2">
+              <input name="price" value="<100" type="radio" id="below1k" />
+              <label for="under1000">Under 100</label>
+            </div>
+            <div class="mb-2">
+              <input name="price" value="200<>100" type="radio" id="1k-2k" />
+              <label for="1kto2k">100 - 200</label>
+            </div>
+            <div class="mb-2">
+              <input name="price" value="500<>200" type="radio" id="2k-5k" />
+              <label for="2kto5k">200 - 500</label>
+            </div>
+            <div class="mb-2">
+              <input name="price" value=">500" type="radio" id="above5k" />
+              <label for="above5000">Above 500</label>
+            </div>
+            <button type="submit">submit</button>
+            <button type="">clear all</button>
+          </section>
+          <!-- Section Price -->
+        </form>
+      </div>
+      <div class="col-lg-10" id="shop_cart">
+        <div class="row">
+          <div class="my-3">
+            <a style="color: white" style="text-decoration: none" href="cart">
+              <button type="button" class="btn btn-primary mr-3">Cart</button>
+            </a>
+          </div>
+        </div>
+        <div class="container">
+          <div class="text-center mb-4" style="text-decoration: underline">
+            <h3>Shop</h3>
+            
+          </div>
+          <button style="" class="btn btn-light">anything missing??</button>
+          
+          <div class="row" style="margin: 0 auto">
+            {%if farfruits%}
+
+            {%for i in farfruits%}
+            <div
+              class="col-lg-4 col-md-6 col-12 text-center"
+              style="margin: 0 auto"
+            >
+              <div class="card" style="width: 20rem; padding: 10px 0px">
+                <img
+                  class="card-img-top"
+                  src="{{i.image.url}}"
+                  alt="Card image cap"
+                />
+
+                <div class="card-block">
+                  <h4 class="card-title">{{i.crop_name}}</h4>
+                  <p class="card-text">Price /kg: Rs {{i.price_per_kg}}</p>
+                  <p>Sold By : {{i.sold_by}}</p>
+                  <p>Remaing Quantity : {{i.remaing_quantity}}</p>
+                  <p>
+                  {%if i.rating  != 0%}
+                  {% with ''|center:i.rating as range %}
+                  {% for _ in range %}
+                  <i class="fa fa-star fa-sm text-primary" aria-hidden="true"></i>
+                  {% endfor %}
+                  ({{i.rating_count}})
+                    {% endwith %}
+                  
+                  </p>
+                
+                  {%else%}
+                  <p>Rating : Not Rated</p>
+                  {%endif%}
+                  
+                  <button
+                    data-id="{{i.id}}"
+                    data-action="add"
+                    class="add_to_cart btn btn-primary"
+                  >
+                    Add to cart
+                  </button>
+                </div>
+              </div>
+            </div>
+            {%endfor%}
+            {%else%}
+            <P>NOTHING HERE</P>
+            {%endif%}
+            <!-- <div class="col-lg-4 text-center">
+              <div class="card" style="width: 20rem; padding: 10px 0px">
+                <img
+                  class="card-img-top"
+                  src="./images/Banana.jpg"
+                  alt="Card image cap"
+                />
+                <div class="card-block">
+                  <h4 class="card-title">Banana</h4>
+                  <p class="card-text">Price: Rs 20</p>
+                  <button
+                    href="#"
+                    data-name="Banana"
+                    data-price="20"
+                    class="add-to-cart btn btn-primary text-center"
+                  >
+                    Add to cart
+                  </button>
+                </div>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal -->
+    <div
+      class="modal fade mt-5"
+      id="cart"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Cart</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <table class="show-cart table"></table>
+            <div>Total price: Rs <span class="total-cart"></span></div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <a target="blank"
+              ><button id="order_now" type="button" class="btn btn-primary">
+                Order now
+              </button></a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-2 col-sm-4 col-xs-12">
+            <div class="ml-2 single_footer">
+              <h4>Quick Links</h4>
+              <ul style="font-size: 24px">
+                <li><a href="/doctor/crops">Digital Doctor</a></li>
+                <li><a href ="/articles/">Articles</a></li>
+                <!-- <li><a href="#">Standard dummy text</a></li>
+                  <li><a href="#">Type specimen book</a></li> -->
+              </ul>
+            </div>
+          </div>
+          <!--- END COL -->
+          <div
+            class="mt-3 mb-0 col-lg-6 col-md-5 col-sm-4 col-xs-12"
+            style="text-align: center; font-family: Acme, sans-serif"
+          >
+            <h1>The Agricultural Portal</h1>
+            <div class="mt-5 row" style="font-size: 24px">
+              <div class="col-lg-3">
+                <i class="fa fa-facebook fa-lg"></i>
+              </div>
+              <div class="col-lg-3">
+                <i class="fa fa-instagram fa-lg" aria-hidden="true"></i>
+              </div>
+              <div class="col-lg-3">
+                <i class="fa fa-twitter fa-lg" aria-hidden="true"></i>
+              </div>
+              <div class="col-lg-3">
+                <i class="fa fa-youtube fa-lg" aria-hidden="true"></i>
+              </div>
+            </div>
+          </div>
+          <!--- END COL -->
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="single_footer single_footer_address">
+              <h4>Subscribe to AgroCenter</h4>
+              <div class="signup_form">
+                <form action="#" class="subscribe">
+                  <input
+                    type="text"
+                    class="subscribe__input"
+                    placeholder="Enter Email Address"
+                  />
+                  <p>Transalate :</p>
+                  {% google_translate %}
+                  <button type="button" class="subscribe__btn">
+                    <i class="fa fa-paper-plane fa-lg" aria-hidden="true"></i>
+                  </button>
+                </form>
+              </div>
+            </div>
+            <!-- <div class="social_profile">
+                <ul>
+                  <li>
+                    <a href="#"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="fa fa-instagram fa-lg" aria-hidden="true"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="fa fa-google-plus fa-lg" aria-hidden="true"></i></a>
+                  </li>
+                </ul>
+              </div> -->
+          </div>
+          <!--- END COL -->
+        </div>
+        <!-- <h1
+          class="mt-3 mb-0"
+          style="text-align: center; font-family: Acme, sans-serif"
+        >
+          The Agricultural Portal
+        </h1> -->
+        <!--- END ROW -->
+        <div class="row">
+          <div class="col-lg-12 col-sm-12 col-xs-12">
+            <p class="copyright">
+              Copyright © 2020 <a href="#">AgroCenter</a>.
+            </p>
+          </div>
+          <!--- END COL -->
+        </div>
+        <!--- END ROW -->
+      </div>
+      <!--- END CONTAINER -->
+    </div>
+    <!-- Footer End -->
+    <dialog id = "mod">
+    <h2>Message</h2>
+    <div class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <h5 class="modal-title" id="exampleModalLabel">Message</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Product added
+          </div>
+          <div class="modal-footer">
+            <form method="dialog">
+              <button class="btn btn-secondary">Close</button>
+            </form>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script>
+      var user = "{{request.user}}";
+
+      function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== "") {
+          const cookies = document.cookie.split(";");
+          for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === name + "=") {
+              cookieValue = decodeURIComponent(
+                cookie.substring(name.length + 1)
+              );
+              break;
+            }
+          }
+        }
+        return cookieValue;
+      }
+      const csrftoken = getCookie("csrftoken");
+    </script>
+    <script src="{% static 'js/shop_home.js' %}"></script>
+    <script>
+      // Mobile Navigation
+      if ($(".nav-menu").length) {
+        var $mobile_nav = $(".nav-menu").clone().prop({
+          class: "mobile-nav d-lg-none",
+        });
+        $("body").append($mobile_nav);
+        $("body").prepend(
+          '<button type="button" class="mobile-nav-toggle d-lg-none"><i class="icofont-navigation-menu"></i></button>'
+        );
+        $("body").append('<div class="mobile-nav-overly"></div>');
+
+        $(document).on("click", ".mobile-nav-toggle", function (e) {
+          $("body").toggleClass("mobile-nav-active");
+          $(".mobile-nav-toggle i").toggleClass(
+            "icofont-navigation-menu icofont-close"
+          );
+          $(".mobile-nav-overly").toggle();
+        });
+
+        $(document).on("click", ".mobile-nav .drop-down > a", function (e) {
+          e.preventDefault();
+          $(this).next().slideToggle(300);
+          $(this).parent().toggleClass("active");
+        });
+
+        $(document).click(function (e) {
+          var container = $(".mobile-nav, .mobile-nav-toggle");
+          if (!container.is(e.target) && container.has(e.target).length === 0) {
+            if ($("body").hasClass("mobile-nav-active")) {
+              $("body").removeClass("mobile-nav-active");
+              $(".mobile-nav-toggle i").toggleClass(
+                "icofont-navigation-menu icofont-close"
+              );
+              $(".mobile-nav-overly").fadeOut();
+            }
+          }
+        });
+      } else if ($(".mobile-nav, .mobile-nav-toggle").length) {
+        $(".mobile-nav, .mobile-nav-toggle").hide();
+      }
+    </script>
+    <script>
+      var user = '{{request.user}}'
+      function URL()
+      {
+          //The variable to be returned
+          var URL = "/farmer/f/";
+      
+          //The variables containing the respective IDs
+          var user = '{{request.user}}'
+      
+          //Forming the variable to return    
+          URL += user
+          return URL;
+      }
+      </script>
+      
+<!-- Modal -->
+
+
+
+  </body>
+</html>

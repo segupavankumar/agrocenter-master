@@ -1,0 +1,39 @@
+
+/* body {
+  font: 13px/20px "Lucida Grande", Tahoma, Verdana, sans-serif;
+  color: #121312;
+ 
+} */
+/* body{
+  background: url(https://wallpapercave.com/wp/wp3471778.jpg);
+} */
+h1{
+  color:#030e02;
+  font-weight: 1000;
+  font-size :30px;
+  padding-top: 18;
+  position:relative;
+  padding-left: 0;
+  
+}
+.container-fluid{
+  color: #000000;
+  font-size: 25px;
+  font-weight: 500;
+  padding-left: 100;
+}
+
+#exampleInputquantity{
+  width: 4em;
+}
+
+.tab { 
+            display: inline-block; 
+            margin-left: 50px; 
+        }
+        
+#btn btn-success{
+  position: center;
+  padding-left: 500;
+}
+

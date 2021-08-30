@@ -1,0 +1,435 @@
+{%load static%}
+{% load mathfilters %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Dashboard</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="stylesheet" href="{% static 'css/1.css' %}">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/metisMenu/2.5.2/metisMenu.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/startbootstrap-sb-admin-2/3.3.7/css/sb-admin-2.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css" />
+  <link rel="stylesheet" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/416491/timeline.css" />
+
+  <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/metisMenu/2.5.2/metisMenu.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.1/raphael.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/startbootstrap-sb-admin-2/3.3.7/js/sb-admin-2.js"></script>
+  <script href="https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js"></script>
+</head>
+<style>
+  #box {
+    border-style: double;
+    width: max-content;
+  }
+
+  .box_ {
+    margin-left: 260px;
+    width: max-content;
+  }
+
+  .container {
+    background-color: white;
+  }
+
+  .col-lg-2 {
+    background-color: white;
+    height: 100%;
+    border-right: 1px solid thistle;
+
+
+
+
+  }
+
+  .col-lg-10 {
+    background-color: white;
+    height: 100%;
+  }
+
+  .col-lg-4 {
+    height: 250px;
+  }
+
+  .bold {
+    font-family: ProximaNova-Semibold !important;
+    padding-left: 350px;
+    padding-top: 5px;
+
+
+  }
+
+
+  .i {
+    padding-bottom: 15px;
+  }
+
+  .f {
+    padding-top: 10px;
+    text-decoration: none;
+  }
+
+  .l {
+    text-decoration: none;
+    color: limegreen;
+    padding-left: 10px;
+  }
+
+
+
+  .a-box {
+    display: block;
+    border-radius: 4px;
+    border: 1px #ddd solid;
+    background-color: #fff;
+    height: 275px;
+  }
+
+  .heading {
+    background-color: #f6f6f6 !important;
+    height: 75px;
+  }
+
+  .h {
+    margin-top: 2px;
+    padding-left: 5px;
+    font-size: 14px;
+  }
+
+  .n {
+
+    margin-bottom: 1px;
+    font-size: 12px;
+    padding-left: 5px;
+  }
+
+  .u {
+    display: inline-block;
+    padding: 15px;
+  }
+
+
+  .m {
+    padding-left: 25px;
+    padding-top: 10px;
+  }
+
+  .gg {
+    padding-left: 435px;
+  }
+
+  .j {
+    text-align: end;
+    color: black;
+
+    display: block;
+  }
+</style>
+<style>
+  .rating {
+    width: 300px;
+    font-size: 45px;
+    overflow:hidden;
+  }
+  .rating input {
+    float: right;
+    opacity: 0;
+    position: absolute;
+  }
+  .rating a, 
+  .rating label {
+        float:right;
+        color: #aaa;
+        text-decoration: none;
+        -webkit-transition: color .4s;
+        -moz-transition: color .4s;
+        -o-transition: color .4s;
+        transition: color .4s;
+      }
+  .rating label:hover ~ label,
+  .rating input:focus ~ label,
+  .rating label:hover,
+      .rating a:hover,
+      .rating a:hover ~ a,
+      .rating a:focus,
+      .rating a:focus ~ a		{
+        color: orange;
+        cursor: pointer;
+      }
+      .rating2 {
+        direction: rtl;
+      }
+      .rating2 a {
+        float:none
+      }
+</style>
+
+<body>
+  <div id="wrapper">
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Agrocenter</a>
+      </div>
+      <!-- /.navbar-header -->
+
+      <ul class="nav navbar-top-links navbar-right">
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-user">
+            <li>
+              <a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+            </li>
+            <li>
+              <a href="farmer/settings"><i class="fa fa-gear fa-fw"></i> Settings</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="/user/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+            </li>
+          </ul>
+          <!-- /.dropdown-user -->
+        </li>
+        <!-- /.dropdown -->
+      </ul>
+      <!-- /.navbar-top-links -->
+
+      <div class="navbar-default sidebar" role="navigation">
+        <div class="sidebar-nav navbar-collapse">
+          <ul class="nav" id="side-menu">
+            <li class="sidebar-search">
+              <div class="input-group custom-search-form">
+                <input type="text" class="form-control" placeholder="Search..." />
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button">
+                    <i class="fa fa-search"></i>
+                  </button>
+                </span>
+              </div>
+              <!-- /input-group -->
+            </li>
+            <li>
+              <a href="javascript:window.location=URL();"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+            </li>
+            {%if user.is_farmer%}
+            <li>
+              <a href="/farmer/all_products"><i class="fa fa-bar-chart fa-fw"></i> All Products</a>
+              <!-- /.nav-second-level -->
+            </li>
+            {%endif%}
+            <li>
+              <a href="/farmer/order"><i class="fa fa-table fa-fw"></i> Orders</a>
+            </li>
+            {%if user.is_farmer%}
+            <li>
+              <a href="add_details"><i class="fa fa-edit fa-fw"></i> Add a Product</a>
+            </li>
+            {%endif%}
+            <li>
+              <a href="revenue"><i class="fa fa-money fa-fw"></i> Revenue</a>
+            </li>
+          </ul>
+        </div>
+        <!-- /.sidebar-collapse -->
+      </div>
+      <!-- /.navbar-static-side -->
+    </nav>
+  </div>
+
+
+
+
+
+  {%for i,j in fruit%}
+  <label style="position: relative; left: 260px; margin-right: 10px">order {{ forloop.counter }}</label>
+  <section class="container-fluid">
+    <div class="col-lg-10">
+      <div class="a-box border box_">
+        <div class="heading">
+          <div class="u">
+            <p class="n">ORDER PLACED ON</p>
+            <p class="h">{{j.data_ordered | date:" d/m/Y"}}</p>
+          </div>
+          {%if j.status != False%}
+          <div class="u">
+            <p class="n">ORDER deleiverable on </p>
+            <p class="h">{{j.deliverable_date}}</p>
+          </div>
+          {%else%}
+          <div class="u">
+            <p class="n">ORDER deleverable ON</p>  
+            <p class="h">not yet delevered</p>
+
+            
+          </div>
+          {%endif%}
+
+
+          <div class="u">
+            <p class="n">DELIVERED TO</p>
+            <p class="h">{{request.user.username}}</p>
+          </div>
+          <div class="gg u">
+            <p class="n">TOTAL</p>
+            {% with numerator=j.amount denominator=100 %}
+            <p class="h">{{ numerator|div:denominator }}</p>
+            {% endwith %} 
+          </div>
+        </div>
+        {%for a in i%}
+        <div style=" margin-right: 10px">
+
+
+
+
+          
+          <p style="padding-left: 25px">
+          <div class="media col-lg-6 mt-3" id="box">
+            <img src="{{a.0.image.url}}" class="align-self-center mr-3" style="width: 200px" />
+            <div class="media-body">
+              <h4>{{a.0.crop_name}}</h4>
+              <p>
+                Quantity (per Kg): {{a.1}} <br />
+                Price (per Kg) : {{a.0.price_per_kg}} <br />
+
+                Category : {{a.0.category}}<br /><br />
+                {%if not a.2 or a.2 == 0 %}
+                <div class="rating rating2">
+                  <a href="#5" title="Give 5 stars" data-order="{{j.id}}" data-past = "{{a.3}}" data-id = "{{a.0.id}}" data-value="5">★</a>
+                  <a href="#4" title="Give 4 stars" data-order="{{j.id}}" data-past = "{{a.3}}" data-id = "{{a.0.id}}" data-value="4">★</a>
+                  <a href="#3" title="Give 3 stars" data-order="{{j.id}}" data-past = "{{a.3}}" data-id = "{{a.0.id}}" data-value="3">★</a>
+                  <a href="#2" title="Give 2 stars" data-order="{{j.id}}" data-past = "{{a.3}}" data-id = "{{a.0.id}}" data-value="2">★</a>
+                  <a href="#1" title="Give 1 star" data-order="{{j.id}}" data-past = "{{a.3}}" data-id = "{{a.0.id}}" data-value="1">★</a>
+                </div>
+                {%else%}
+                You rated :
+                {% with ''|center:a.2 as range %}
+                  {% for _ in range %}
+                  <i class="fa fa-star fa-sm text-primary" aria-hidden="true"></i>
+                  {% endfor %}
+                    {% endwith %}
+                {%endif%}
+
+              </p>
+            </div>
+          </div>
+          </p>
+        </div>
+      {%endfor%}
+    </div>
+      <!-- <h1>date ordered {{j.data_ordered}}</h1>
+    <h1>amount in paise  {{j.amount }}</h1> -->
+  </section>
+  </div>
+  {%endfor%}
+</body>
+<script>
+  var user = "{{request.user}}";
+  function URL() {
+    //The variable to be returned
+    var URL = "/farmer/f/";
+
+    //The variables containing the respective IDs
+    var user = "{{request.user}}";
+
+    //Forming the variable to return
+    URL += user;
+    return URL;
+  }
+</script>
+<script>
+  var user = "{{request.user}}";
+
+  function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== "") {
+      const cookies = document.cookie.split(";");
+      for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i].trim();
+        // Does this cookie string begin with the name we want?
+        if (cookie.substring(0, name.length + 1) === name + "=") {
+          cookieValue = decodeURIComponent(
+            cookie.substring(name.length + 1)
+          );
+          break;
+        }
+      }
+    }
+    return cookieValue;
+  }
+  const csrftoken = getCookie("csrftoken");
+</script>
+<script>
+ // var a = document.getElementsByClassName('rating')
+  //console.log(a)
+  //for(var i=0;i<a.length;i++){
+   // var x = a[i].getElementsByTagName('a')
+   // console.log(x)
+   // a[i].addEventListener('click',function(){
+  //    var data = this.dataset.value
+ //     console.log('click')
+   //   console.log(data)
+   // })
+ // }
+  
+  
+  
+  
+  $(".rating a").on('click', function(e){
+
+    let value = $(this).data('value');
+    let id = $(this).data('id')
+    let order_id = $(this).data('order')
+    let past = $(this).data('past')
+    console.log(value)
+    console.log(id)
+    console.log(order_id)
+    console.log(past)
+
+     $.ajax({
+        url: "/farmer/rating",
+      type: 'POST',
+      headers: {
+  
+        'X-CSRFToken':csrftoken,
+        'Content-Type':'application/json'
+    },
+       data:JSON.stringify({'rating': value,'item_id':id,"order_id":order_id,"past_id":past}),
+     success: function (d){
+      location.reload()
+        
+       },
+       error:function(){
+        alert('error')
+       }
+     })
+  });
+</script>
+
+</html>

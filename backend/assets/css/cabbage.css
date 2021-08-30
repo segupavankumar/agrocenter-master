@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:200,400,700");
+
+.head {
+
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 3em;
+  letter-spacing: -2px;
+  border-bottom: 2px solid black;
+  text-transform: uppercase;
+}
+
+
+.link-boxes {
+  height: 50vh;
+  position: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          -webkit-align-items: stretch;
+          align-items: stretch;
+  font-family: "Montserrat";
+  font-weight: 200;
+}
+
+.box1,
+.box2,
+.box3 {
+  top: 100px;
+  -ms-flex-preferred-size: 33.33%;
+      -webkit-flex-basis: 33.33%;
+          flex-basis: 33.33%;
+  -webkit-transition: 0.5s flex-basis cubic-bezier(0.23, 1, 0.32, 1);
+  -o-transition: 0.5s flex-basis cubic-bezier(0.23, 1, 0.32, 1);
+  transition: 0.5s flex-basis cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          -webkit-justify-content: flex-end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          -webkit-align-items: center;
+          align-items: center;
+  background-position: center;
+	-webkit-background-size: cover;
+	        background-size: cover
+}
+
+.box1:hover,
+.box2:hover,
+.box3:hover {
+  -ms-flex-preferred-size: 50%;
+      -webkit-flex-basis: 50%;
+          flex-basis: 50%;
+}
+
+.box1:after,
+.box2:after,
+.box3:after {
+  content: "";
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  -webkit-transition: 0.5s background-color cubic-bezier(0.23, 1, 0.32, 1);
+  -o-transition: 0.5s background-color cubic-bezier(0.23, 1, 0.32, 1);
+  transition: 0.5s background-color cubic-bezier(0.23, 1, 0.32, 1);
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-content: center;
+      -ms-flex-line-pack: center;
+          align-content: center;
+  font-size: 4em;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  color: white;
+}
+
+.box1:after {
+  background-color: rgba(250, 117, 55, 0.72);
+  content: "STEM";
+}
+
+.box2:after {
+  background-color: rgba(186, 231, 75, 0.68);
+  content: "ROOT";
+}
+
+.box3:after {
+  background-color: rgba(79, 183, 178, 0.67);
+  content: "LEAF";
+}
+
+.box1:hover:after,
+.box2:hover:after,
+.box3:hover:after {
+  opacity: 1;
+}
+
+.box1:hover:after,
+.box2:hover:after,
+.box3:hover:after {
+  background: none;
+}

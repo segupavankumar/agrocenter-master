@@ -1,0 +1,192 @@
+@import url("https://fonts.googleapis.com/css2?family=Allura&family=Josefin+Sans:wght@100&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: white;
+  font-family: "Josefin Sans", sans-serif;
+  background-image: linear-gradient(
+    rgba(250, 248, 248, 0.979),
+    rgba(253, 253, 253, 0.1)
+  );
+}
+nav .logo {
+  width: 60px;
+  height: 10vh;
+  align-items: left;
+  margin-left: 50px;
+  float: center;
+}
+
+nav {
+  background-color: white;
+  overflow: hidden;
+}
+
+nav a {
+  text-decoration: none;
+  padding: 20px;
+  text-align: right;
+  float: right;
+  color: black;
+  font-family: "Times New Roman", Times, serif;
+  width: 10%;
+  display: flex;
+  justify-content: space-around;
+}
+
+nav .bt {
+  padding: 12px 30px;
+  border-radius: 4px;
+  margin-top: 10px;
+  margin-right: 10px;
+  background: rgb(54, 53, 95);
+  color: white;
+}
+
+.bt:hover {
+  background: gray;
+  color: white;
+}
+
+.box0 {
+  margin-top: 5%;
+}
+
+.box0 h1 {
+  font-family: "Allura", cursive;
+  font-size: 80px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.box0 h5 {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 26px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.boxs {
+  display: flex;
+  text-align: center;
+  width: auto;
+  justify-content: center;
+}
+
+.boxs .box1 {
+  background-color: rgb(233, 233, 233);
+  margin: 10px;
+  margin-bottom: 50px;
+  width: 400px;
+  padding: 20px;
+  margin-left: 50px;
+  line-height: 20px;
+  color: rgb(15, 15, 14);
+  position: relative;
+}
+
+.boxs .box1 h3 {
+  color: white;
+  font-size: 40px;
+  margin-right: 40px;
+  margin-bottom: 80px;
+}
+
+.boxs .box1 {
+  background: linear-gradient(
+    0deg,
+    rgb(231, 231, 231) 60%,
+    rgb(54, 53, 95) 50%
+  );
+}
+
+.boxs .box1 li {
+  font-size: 26px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.carousel-item {
+  width: 100px;
+}
+
+.box2 {
+  text-align: center;
+  background: rgb(229, 239, 248);
+  padding: 100px;
+  margin-bottom: 30px;
+}
+
+.box2 h3 {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.box2 p {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bolder;
+}
+.image {
+  margin-left: 20%;
+  margin-bottom: 50px;
+
+  border-radius: 10px;
+}
+.image img {
+  width: 1000px;
+  height: 600px;
+  border: 1px;
+  border-style: solid;
+  border-radius: 20px;
+  box-shadow: 24px 26px 4px rgba(0, 0, 0, 0.25);
+}
+.people {
+  margin-left: 310px;
+  margin-right: 310px;
+  border: 1px;
+  border-style: solid;
+  border-radius: 20px;
+  box-shadow: 24px 26px 4px rgba(0, 0, 0, 0.25);
+}
+.people img {
+  width: 200px;
+  margin-left: 30px;
+  margin-right: 30px;
+  padding: 10px;
+}
+#h1 {
+  font-size: 60px;
+}
+
+.services {
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-bottom: 40px;
+  padding: 10px;
+  border: 1px;
+  border-style: solid;
+  border-radius: 20px;
+  box-shadow: 24px 26px 4px rgba(0, 0, 0, 0.25);
+}
+.services h1 {
+  position: relative;
+  margin-left: 70px;
+}
+
+.services p {
+  margin-top: 10px;
+  position: relative;
+  margin-left: 170px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.pa {
+  margin-top: 30px;
+  margin-left: 80px;
+}

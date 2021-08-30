@@ -1,0 +1,277 @@
+{%load static%}
+{%load google_translate%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Agrocenter</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link rel="stylesheet" href="{% static 'css/icofont.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/trail.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}" />
+    
+  </head>
+  <body>
+    <!-- ======= Header -THIS SECTION CONTAINS CODE FOR NAVBAR ======= -->
+    <header id="header" class="fixed-top">
+      <div class="container d-flex">
+        <div class="logo mr-auto">
+          <h1 class="text-light">
+            <a href="/"><span>Agro</span>_center</a>
+          </h1>
+        </div>
+
+        <nav class="nav-menu d-none d-lg-block">
+          <ul>
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li>
+              <a href="/shop">Shop</a>
+            </li>
+            <li><a href="javascript:window.location=URL();">Profile</a></li>
+            {%if user.is_authenticated%}
+            <li><a href="/user/logout">logout</a></li>
+            {%endif%}
+          </ul>
+        </nav>
+        <!-- .nav-menu -->
+      </div>
+      
+    </header>
+
+    <section style="margin-top: 100px">
+      <h1 class="text-center" >AgroNews</h1>
+      {%for i in articles%}
+      <div class="container sm">
+        <h2>{{i.name}}</h2>
+        <div class="row">
+          <div class="col-lg-8">
+            <p>
+              {{i.about}}<br>
+              <a href="{{i.id}}" ><button type="button" class="btn btn-primary">READ MORE</button>
+              </a>
+            </p>
+          </div> 
+          <div class="col-lg-4">
+            <img
+              class="img-responsive"
+              style="width: 400px; height: 300px"
+              src="{{i.image.url}}"
+              alt=""
+            />
+            <h4>Published on : {{i.pub_date}}</h4>
+          </div>
+        </div>
+      </div>
+      {%endfor%}
+      <!-- <div class="container sm">
+        <h2>{{j.name}}</h2>
+        <div class="row">
+          <div class="col-lg-4">
+            <img
+              class="img-responsive"
+              style="width: 400px; height: 300px"
+              src="{{j.image.url}}"
+              alt=""
+            />
+          </div>
+          <div class="col-lg-8">
+            <p>
+              {{j.about}}
+            </p>
+          </div>
+        </div>
+      </div> -->
+      
+    </section>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-2 col-sm-4 col-xs-12">
+            <div class="ml-2 single_footer">
+              <h4>Quick Links</h4>
+              <ul style="font-size: 24px">
+                <li><a href="/doctor/crops">Digital Doctor</a></li>
+                <li><a href ="/articles/">Articles</a></li>
+                <!-- <li><a href="#">Standard dummy text</a></li>
+                        <li><a href="#">Type specimen book</a></li> -->
+              </ul>
+            </div>
+          </div>
+          <!--- END COL -->
+          <div
+            class="mt-1 mb-3 col-lg-6 col-md-5 col-sm-4 col-xs-12"
+            style="text-align: center; font-family: Acme, sans-serif"
+          >
+            <h1>The Agricultural Portal</h1>
+            <div class="mt-3 row" style="font-size: 24px">
+              <div class="col-lg-3 col-3">
+                <i class="fa fa-facebook fa-lg"></i>
+              </div>
+              <div class="col-lg-3 col-3">
+                <i class="fa fa-instagram fa-lg" aria-hidden="true"></i>
+              </div>
+              <div class="col-lg-3 col-3">
+                <i class="fa fa-twitter fa-lg" aria-hidden="true"></i>
+              </div>
+              <div class="col-lg-3 col-3">
+                <i class="fa fa-youtube fa-lg" aria-hidden="true"></i>
+              </div>
+            </div>
+          </div>
+          <!--- END COL -->
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="single_footer single_footer_address">
+              <h4>Subscribe to AgroCenter</h4>
+              <div class="signup_form">
+                <form action="#" class="subscribe">
+                  <input
+                    type="text"
+                    class="subscribe__input"
+                    placeholder="Enter Email Address"
+                  />
+                  <button type="button" class="subscribe__btn">
+                    <i class="fa fa-paper-plane fa-lg" aria-hidden="true"></i>
+                  </button>
+                </form>
+                {%google_translate%}
+              </div>
+            </div>
+            <!-- <div class="social_profile">
+                      <ul>
+                        <li>
+                          <a href="#"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fa fa-instagram fa-lg" aria-hidden="true"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fa fa-google-plus fa-lg" aria-hidden="true"></i></a>
+                        </li>
+                      </ul>
+                    </div> -->
+          </div>
+          <!--- END COL -->
+        </div>
+        <!-- <h1
+                class="mt-3 mb-0"
+                style="text-align: center; font-family: Acme, sans-serif"
+              >
+                The Agricultural Portal
+              </h1> -->
+        <!--- END ROW -->
+        <div class="row">
+          <div class="col-lg-12 col-sm-12 col-xs-12">
+            <p class="copyright">
+              Copyright © 2020 <a href="#">AgroCenter</a>.
+            </p>
+          </div>
+          <!--- END COL -->
+        </div>
+        <!--- END ROW -->
+      </div>
+      <!--- END CONTAINER -->
+    </div>
+    <!-- Footer End -->
+    <!-- End Header -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- JS-->
+    <script>
+      // Mobile Navigation
+      if ($(".nav-menu").length) {
+        var $mobile_nav = $(".nav-menu").clone().prop({
+          class: "mobile-nav d-lg-none",
+        });
+        $("body").append($mobile_nav);
+        $("body").prepend(
+          '<button type="button" class="mobile-nav-toggle d-lg-none"><i class="icofont-navigation-menu"></i></button>'
+        );
+        $("body").append('<div class="mobile-nav-overly"></div>');
+
+        $(document).on("click", ".mobile-nav-toggle", function (e) {
+          $("body").toggleClass("mobile-nav-active");
+          $(".mobile-nav-toggle i").toggleClass(
+            "icofont-navigation-menu icofont-close"
+          );
+          $(".mobile-nav-overly").toggle();
+        });
+
+        $(document).on("click", ".mobile-nav .drop-down > a", function (e) {
+          e.preventDefault();
+          $(this).next().slideToggle(300);
+          $(this).parent().toggleClass("active");
+        });
+
+        $(document).click(function (e) {
+          var container = $(".mobile-nav, .mobile-nav-toggle");
+          if (!container.is(e.target) && container.has(e.target).length === 0) {
+            if ($("body").hasClass("mobile-nav-active")) {
+              $("body").removeClass("mobile-nav-active");
+              $(".mobile-nav-toggle i").toggleClass(
+                "icofont-navigation-menu icofont-close"
+              );
+              $(".mobile-nav-overly").fadeOut();
+            }
+          }
+        });
+      } else if ($(".mobile-nav, .mobile-nav-toggle").length) {
+        $(".mobile-nav, .mobile-nav-toggle").hide();
+      }
+    </script>
+  </body>
+  <script>
+    var user = '{{request.user}}'
+    function URL()
+    {
+        //The variable to be returned
+        var URL = "/farmer/f/";
+    
+        //The variables containing the respective IDs
+        var user = '{{request.user}}'
+    
+        //Forming the variable to return    
+        URL += user
+        return URL;
+    }
+    </script>
+</html>

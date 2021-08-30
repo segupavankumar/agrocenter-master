@@ -1,0 +1,200 @@
+{% load static %}
+{% load socialaccount%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AGROCENTRE</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <link rel="stylesheet" href="{% static 'css/login.css' %}"/>
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{% static 'css/icofont.min.css'%}" />
+    <link rel="stylesheet" href="{% static 'css/trail.css'%}" />
+    <style>
+      button.google
+      {
+        margin-bottom: 0px;
+        margin-top: 25px;
+        margin-left: 75px;
+        width: 200px;
+        height: 36px;
+        border: none;
+        border-radius: 10px;
+        color: rgb(247, 236, 236);
+        font-family: 'Roboto', sans-serif;
+        font-weight: 600;
+        transition: 0.2s ease;
+        cursor: pointer;
+        background: #c7cbd3;
+      }  
+    </style>
+  </head>
+
+  <body class='bg'>
+    <header id="header" class="fixed-top">
+      <div class="container d-flex">
+        <div class="logo mr-auto">
+          <h1 class="text-light">
+            <a href="#"><span>Agro</span>_center</a>
+          </h1>
+        </div>
+
+        <nav class="nav-menu d-none d-lg-block">
+          <ul>
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li>
+              <a href="/shop">Shop</a>
+              <!-- <ul>
+                  <li class="drop-down"><a href="#">Ongoing-Events</a>
+                    <ul>
+                      <li><a href="#">Deep Drop Down 1</a></li>
+                      <li><a href="#">Deep Drop Down 2</a></li>
+                      <li><a href="#">Deep Drop Down 3</a></li>
+                      <li><a href="#">Deep Drop Down 4</a></li>
+                      <li><a href="#">Deep Drop Down 5</a></li>
+                    </ul>
+                  </li>
+                  <li class="drop-down"><a href="#">Upcoming-Events</a>
+                    <ul>
+                      <li><a href="#">Deep Drop Down 1</a></li>
+                      <li><a href="#">Deep Drop Down 2</a></li>
+                      <li><a href="#">Deep Drop Down 3</a></li>
+                      <li><a href="#">Deep Drop Down 4</a></li>
+                      <li><a href="#">Deep Drop Down 5</a></li>
+                    </ul>
+                  </li>
+    
+                </ul>  -->
+            </li>
+            <li><a href="/doctor/crops">Digital Doctor</a></li>
+          </ul>
+        </nav>
+        <!-- .nav-menu -->
+      </div>
+    </header>
+    <div class="container">
+      <div class="col-lg-6" id="form_layout">
+         <h3 class="mb-3" id="login_title">Login</h3>
+        <form method="POST" class="form-container">
+          {%csrf_token%}
+          <div class="form-group">
+            <label for="email">Username :</label>
+            <input
+              type="text"
+              id="login_box"
+              name="Email"
+              class="col-lg-8 form-control"
+              placeholder="Enter Username"
+              id="email"
+            />
+            {%if request.GET.next%}
+            <input type='hidden' name='next' value='{{request.GET.next}}'>
+            {%endif%}
+          </div>
+          <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input
+              type="password"
+              id="login_box"
+              name="Password"
+              class="col-lg-8 form-control"
+              placeholder="Enter Password"
+              id="pwd"
+            />
+          </div>
+          <div class="form-group form-check">
+            
+            <a style= "color: white;" href="/user/signup">Signup as a user</a><br>
+            <a style= "color:white;" href="/user/signup">Signup as a farmer</a>
+
+          </div>
+          <div class="text-left">
+            <button type="submit" id="submit_button" class="btn">Submit</button>
+            <button name="google" aria-pressed="true" class = 'google'><a href="{% provider_login_url 'google' %}">LOGIN WITH GOOGLE</a></button>
+            <button name="google" aria-pressed="true" class = 'google'><a class="btn btn-link" href="{% url 'password_change' %}">Forget password</a></button>
+            
+          </div>
+            {% if messages %}
+            <div class='alert alert-danger' role="alert">
+              {% for message in messages %}
+            {% if 'safe' in message.tags %}{{ message|safe }}{% else %}{{ message }}{% endif %}
+            {%endfor%}
+          </div>
+            {% endif %}
+        </form>
+      </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      // Mobile Navigation
+      if ($(".nav-menu").length) {
+        var $mobile_nav = $(".nav-menu").clone().prop({
+          class: "mobile-nav d-lg-none",
+        });
+        $("body").append($mobile_nav);
+        $("body").prepend(
+          '<button type="button" class="mobile-nav-toggle d-lg-none"><i class="icofont-navigation-menu"></i></button>'
+        );
+        $("body").append('<div class="mobile-nav-overly"></div>');
+
+        $(document).on("click", ".mobile-nav-toggle", function (e) {
+          $("body").toggleClass("mobile-nav-active");
+          $(".mobile-nav-toggle i").toggleClass(
+            "icofont-navigation-menu icofont-close"
+          );
+          $(".mobile-nav-overly").toggle();
+        });
+
+        $(document).on("click", ".mobile-nav .drop-down > a", function (e) {
+          e.preventDefault();
+          $(this).next().slideToggle(300);
+          $(this).parent().toggleClass("active");
+        });
+
+        $(document).click(function (e) {
+          var container = $(".mobile-nav, .mobile-nav-toggle");
+          if (!container.is(e.target) && container.has(e.target).length === 0) {
+            if ($("body").hasClass("mobile-nav-active")) {
+              $("body").removeClass("mobile-nav-active");
+              $(".mobile-nav-toggle i").toggleClass(
+                "icofont-navigation-menu icofont-close"
+              );
+              $(".mobile-nav-overly").fadeOut();
+            }
+          }
+        });
+      } else if ($(".mobile-nav, .mobile-nav-toggle").length) {
+        $(".mobile-nav, .mobile-nav-toggle").hide();
+      }
+    </script>
+  </body>
+</html>
+

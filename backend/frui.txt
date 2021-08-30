@@ -1,0 +1,201 @@
+Fruits Name
+Unit
+Market Price
+Retail Price
+Shopping Mall
+
+
+Apple washington
+Kg / Pcs
+ ₹ 180
+ ₹ 207 - 229
+ ₹ 216 - 297
+
+
+Apple Simla
+Kg / Pcs
+ ₹ 150
+ ₹ 173 - 191
+ ₹ 180 - 248
+
+
+Apple Green ( Smith )
+Kg / Pcs
+ ₹ 170
+ ₹ 196 - 216
+ ₹ 204 - 281
+
+
+Apricot
+Kg / Pcs
+ ₹ 500
+ ₹ 575 - 635
+ ₹ 600 - 825
+
+
+Avocado (Butterfruit)
+Kg / Pcs
+ ₹ 220
+ ₹ 253 - 279
+ ₹ 264 - 363
+
+
+Banana Morris Kg
+Kg / Pcs
+ ₹ 18
+ ₹ 21 - 23
+ ₹ 22 - 30
+
+
+Banana Regular
+Kg / Pcs
+ ₹ 34
+ ₹ 39 - 43
+ ₹ 41 - 56
+
+
+Banana other
+Kg / Pcs
+ ₹ 38
+ ₹ 44 - 48
+ ₹ 46 - 63
+
+
+Cantaloupe (Musk melon)
+Kg / Pcs
+ ₹ 27
+ ₹ 31 - 34
+ ₹ 32 - 45
+
+
+Custard apple
+Kg / Pcs
+ ₹ 45
+ ₹ 52 - 57
+ ₹ 54 - 74
+
+
+Gooseberry, Indian
+Kg / Pcs
+ ₹ 120
+ ₹ 138 - 152
+ ₹ 144 - 198
+
+
+Grapes ( Black )
+Kg / Pcs
+ ₹ 70
+ ₹ 81 - 89
+ ₹ 84 - 116
+
+
+Grapes ( Green )
+Kg / Pcs
+ ₹ 71
+ ₹ 82 - 90
+ ₹ 85 - 117
+
+
+Guava
+Kg / Pcs
+ ₹ 43
+ ₹ 49 - 55
+ ₹ 52 - 71
+
+
+Jackfruit
+Kg / Pcs
+ ₹ 130
+ ₹ 150 - 165
+ ₹ 156 - 215
+
+
+Lychee
+Kg / Pcs
+ ₹ 180
+ ₹ 207 - 229
+ ₹ 216 - 297
+
+
+Mango, ripe
+Kg / Pcs
+ ₹ 93
+ ₹ 107 - 118
+ ₹ 112 - 153
+
+
+Mango, unripe
+Kg / Pcs
+ ₹ 76
+ ₹ 87 - 97
+ ₹ 91 - 125
+
+
+Orange
+Kg / Pcs
+ ₹ 61
+ ₹ 70 - 77
+ ₹ 73 - 101
+
+
+Orange Imported
+Kg / Pcs
+ ₹ 61
+ ₹ 70 - 77
+ ₹ 73 - 101
+
+
+Papaya
+Kg / Pcs
+ ₹ 27
+ ₹ 31 - 34
+ ₹ 32 - 45
+
+
+Pears
+Kg / Pcs
+ ₹ 115
+ ₹ 132 - 146
+ ₹ 138 - 190
+
+
+Pineapple
+Kg / Pcs
+ ₹ 20
+ ₹ 23 - 25
+ ₹ 24 - 33
+
+
+Pomegranate
+Kg / Pcs
+ ₹ 140
+ ₹ 161 - 178
+ ₹ 168 - 231
+
+
+Sapota (Sapodilla)
+Kg / Pcs
+ ₹ 41
+ ₹ 47 - 52
+ ₹ 49 - 68
+
+
+Sugar cane
+Kg / Pcs
+ ₹ 29
+ ₹ 33 - 37
+ ₹ 35 - 48
+
+
+Sweet lime
+Kg / Pcs
+ ₹ 58
+ ₹ 67 - 74
+ ₹ 70 - 96
+
+
+Watermelon
+Kg / Pcs
+ ₹ 15
+ ₹ 17 - 19
+ ₹ 18 - 25

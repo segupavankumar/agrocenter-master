@@ -1,0 +1,574 @@
+{%load static%}
+{% load google_translate %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Agrocenter</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link
+      href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.1/assets/owl.carousel.min.css"
+    />
+
+    <!-- Slider -->
+    <!-- <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    /> -->
+    <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script> -->
+    <!--  -->
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"
+    />
+    <!--  -->
+
+    <!-- Misc imp scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Removing the above script will not run Counter nd Silder -->
+    <!--  -->
+
+    <link rel="stylesheet" href="{% static 'css/home.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/footer.css'%}" />
+
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+    <script src="{% static 'js/home.js' %}"></script>
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mukta:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Acme&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header Start -->
+    <header id="header">
+      <div id="normal-header">
+        <a
+          href="#"
+          style="
+            font-family: 'Russo One', sans-serif;
+            margin-left: 10px;
+            margin-top: -25px;
+            font-size: 48px;
+          "
+          id="agro_title"
+        ></a>
+
+        <nav id="nav-bar">
+          <ul>
+            <li class="nav-link" id="menu-item">
+              <a href="/" class="menu-link"> Home </a>
+            </li>
+            <li class="nav-link" id="menu-item">
+              <a href="about" class="menu-link"> About </a>
+            </li>
+            <li class="nav-link" id="menu-item">
+              <a href="shop" class="menu-link"> Shop </a>
+            </li>
+            <li class="nav-link" id="menu-item">
+              <a href="/doctor/crops" class="menu-link"> Plant Doctor </a>
+            </li>
+            {%if request.user.is_authenticated%}
+            <li class="nav-link" id="menu-item">
+              <a href="javascript:window.location=URL();" class="menu-link">Profile</a>
+            </li>
+            <li class="nav-link" id="menu-item">
+              <a href="/user/logout" class="menu-link"> Logout</a>
+            </li>
+            {%else%}
+            <li class="nav-link" id="menu-item">
+              <a href="/user/login" class="menu-link"> Login</a>
+            </li>
+            {%endif%}
+          </ul>
+        </nav>
+      </div>
+
+      <div id="responsive-header">
+        <div id="responsive-logo-button">
+          <a
+            href="#"
+            style="
+              font-family: 'Russo One', sans-serif;
+              margin-left: 10px;
+              margin-top: 7px;
+              font-size: 24px;
+              color: black;
+            "
+            id="agro_title"
+            >AGROCENTER</a
+          >
+          <button id="image-button-black">
+            <img
+              src="https://i.ibb.co/yfM3fdZ/dropdown-menu-black.png"
+              alt="Dropdown Menu"
+              id="dropdown-button-black"
+            />
+          </button>
+        </div>
+
+        <div id="responsive-nav-bar">
+          <ul>
+            <li class="nav-link" id="responsive-home-item">
+              <a href="/" class="responsive-menu-link"> Home </a>
+            </li>
+            <li class="nav-link" id="responsive-features-item">
+              <a href="/about" class="responsive-menu-link"> About </a>
+            </li>
+            <li class="nav-link" id="responsive-products-item">
+              <a href="/shop" class="responsive-menu-link"> Shop </a>
+            </li>
+            {%if request.user.is_authenticated%}
+            <li class="nav-link" id="responsive-pricing-item">
+              <a href="javascript:window.location=URL();" class="responsive-menu-link"> Profile</a>
+            </li>
+            <li class="nav-link" id="responsive-pricing-item">
+              <a href="/user/logout" class="responsive-menu-link"> Logout </a>
+            </li>
+            {%else%}
+            <li class="nav-link" id="responsive-pricing-item">
+              <a href="/user/login" class="responsive-menu-link"> Login </a>
+            </li>
+            {%endif%}
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <!-- Header End -->
+
+    <!-- Header Txt Start -->
+
+    <div id="hero-header">
+      <div id="hero-content" style="float: right">
+        <h3 id="hero-title" data-aos="fade-left">AGROCENTER <br /></h3>
+
+        <p id="hero-text" data-aos="fade-right">Harvest || Supply || Earn</p>
+
+        <p class="lead" style="margin: 0 auto">
+          <a class="btn btn-primary btn-lg" href="/about#guide" role="button">Guide</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Header Txt End -->
+
+    <!-- Slider Start-->
+    <!-- Carousel -->
+
+    <div class="container-fluid my-3">
+      <div class="row">
+        <div class="col-lg-6 my-2">
+          <div
+            id="firstslideshow"
+            class="carousel slide carousel-fade"
+            data-ride="carosel"
+          >
+            <ol class="carousel-indicators">
+              <li
+                class="active"
+                data-target="#firstslideshow"
+                data-slide-to="0"
+              ></li>
+              <li data-target="#firstslideshow" data-slide-to="1"></li>
+              <li data-target="#firstslideshow" data-slide-to="2"></li>
+            </ol>
+            <div class="carosel-inner">
+              <div class="carousel-item active">
+                <img
+                  src="{% static 'images/farm.jpg' %}"
+                  class="d-block w-100"
+                  alt=""
+                />
+              </div>
+              <div class="carousel-item">
+                <img src="{% static 'images/image3.jpg' %}" class="d-block w-100" alt="" />
+              </div>
+              <div class="carousel-item">
+                <img src="{% static 'images/beet.jpg' %}" class="d-block w-100" alt="" />
+              </div>
+            </div>
+            <a
+              href="#firstslideshow"
+              class="carousel-control-prev"
+              role="button"
+              data-slide="prev"
+            >
+              <span class="carousel-control-prev-icon"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a
+              href="#firstslideshow"
+              class="carousel-control-next"
+              role="button"
+              data-slide="next"
+            >
+              <span class="carousel-control-next-icon"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-6 my-2">
+          <div
+            id="secondslideshow"
+            class="carousel slide carousel-fade"
+            data-ride="carosel"
+          >
+            <ol class="carousel-indicators">
+              <li
+                class="active"
+                data-target="#secondslideshow"
+                data-slide-to="0"
+              ></li>
+              <li data-target="#secondslideshow" data-slide-to="1"></li>
+              <li data-target="#secondslideshow" data-slide-to="2"></li>
+            </ol>
+            <div class="carosel-inner">
+              <div class="carousel-item active">
+                <img src="{% static 'images/farmer_in.jpg' %}" class="d-block w-100" alt="" />
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="{% static 'images/Login_wallpaper.jpg'  %}"
+                  class="d-block w-100"
+                  alt=""
+                />
+              </div>
+              <div class="carousel-item">
+                <img src="{% static 'images/farmer.jpeg' %}" class="d-block w-100" alt="" />
+              </div>
+            </div>
+            <a
+              href="#secondslideshow"
+              class="carousel-control-prev"
+              role="button"
+              data-slide="prev"
+            >
+              <span class="carousel-control-prev-icon"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a
+              href="#secondslideshow"
+              class="carousel-control-next"
+              role="button"
+              data-slide="next"
+            >
+              <span class="carousel-control-next-icon"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Slider End -->
+
+    <!-- Box Start -->
+    <div class="container">
+      <div class="col-lg-12">
+        <div class="box text-center">
+          <a class="box-text" href="farmer/signup" style="color: white"
+            >Join our Community</a
+          >
+        </div>
+      </div>
+    </div>
+    <!-- Box End -->
+
+    <!--Counter Start-->
+    <div class="container mb-3">
+      <div class="row">
+        <br />
+        <div class="col text-center">
+          <!-- <h2>Counter</h2> -->
+          <!-- <p>counter to count up to a target number</p> -->
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-lg-3 col-xs-6 mt-1">
+          <div class="counter">
+            <i class="fa fa-code fa-2x"></i>
+            <h2
+              class="timer count-title count-number"
+              data-to="100"
+              data-speed="1500"
+            ></h2>
+            <p class="count-text">Our Farmers</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-xs-6 mt-1">
+          <div class="counter">
+            <i class="fa fa-coffee fa-2x"></i>
+            <h2
+              class="timer count-title count-number"
+              data-to="1700"
+              data-speed="1500"
+            ></h2>
+            <p class="count-text">Products supplied</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-xs-6 mt-1">
+          <div class="counter">
+            <i class="fa fa-lightbulb-o fa-2x"></i>
+            <h2
+              class="timer count-title count-number"
+              data-to="11900"
+              data-speed="1500"
+            ></h2>
+            <p class="count-text">Goods recieved</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-xs-6 mt-1">
+          <div class="counter">
+            <i class="fa fa-bug fa-2x"></i>
+            <h2
+              class="timer count-title count-number"
+              data-to="157"
+              data-speed="1500"
+            ></h2>
+            <p class="count-text">Success rate</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Counter End -->
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-2 col-sm-4 col-xs-12">
+            <div class="ml-2 single_footer">
+              <h4>Quick Links</h4>
+              <ul style="font-size: 24px">
+                <li><a href="/doctor/crops">Digital Doctor</a></li>
+                <li><a href ="/articles/">Articles</a></li>
+                <!-- <li><a href="#">Standard dummy text</a></li>
+                  <li><a href="#">Type specimen book</a></li> -->
+              </ul>
+            </div>
+          </div>
+          <!--- END COL -->
+          <div
+            class="mt-1 mb-3 col-lg-6 col-md-5 col-sm-4 col-xs-12"
+            style="text-align: center; font-family: Acme, sans-serif"
+          >
+            <h1>The Agricultural Portal</h1>
+            <div class="mt-3 row" style="font-size: 24px">
+              <div class="col-lg-3 col-3">
+                <i class="fa fa-facebook fa-lg"></i>
+              </div>
+              <div class="col-lg-3 col-3">
+                <i class="fa fa-instagram fa-lg" aria-hidden="true"></i>
+              </div>
+              <div class="col-lg-3 col-3">
+                <i class="fa fa-twitter fa-lg" aria-hidden="true"></i>
+              </div>
+              <div class="col-lg-3 col-3">
+                <i class="fa fa-youtube fa-lg" aria-hidden="true"></i>
+              </div>
+            </div>
+          </div>
+          <!--- END COL -->
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="single_footer single_footer_address">
+              <h4>Subscribe to AgroCenter</h4>
+              <div class="signup_form">
+                <form method="POST" class="subscribe">
+                  {%csrf_token%}
+                  <input
+                    type="email"
+                    id = "e"
+                    class="subscribe__input"
+                    name = "email"
+                    placeholder="Enter Email Address"
+                    required
+                  />
+                  {%google_translate vertical %}
+                  <button type="submit" class="subscribe__btn">
+                    <i class="fa fa-paper-plane fa-lg" aria-hidden="true"></i>
+                  </button>
+                </form>
+              </div>
+            </div>
+            <!-- <div class="social_profile">
+                <ul>
+                  <li>
+                    <a href="#"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="fa fa-instagram fa-lg" aria-hidden="true"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="fa fa-google-plus fa-lg" aria-hidden="true"></i></a>
+                  </li>
+                </ul>
+              </div> -->
+          </div>
+          <!--- END COL -->
+        </div>
+        <!-- <h1
+          class="mt-3 mb-0"
+          style="text-align: center; font-family: Acme, sans-serif"
+        >
+          The Agricultural Portal
+        </h1> -->
+        <!--- END ROW -->
+        <div class="row">
+          <div class="col-lg-12 col-sm-12 col-xs-12">
+            <p class="copyright">
+              Copyright © 2021 <a href="#">AgroCenter</a>.
+            </p>
+          </div>
+          <!--- END COL -->
+        </div>
+        <!--- END ROW -->
+      </div>
+      <!--- END CONTAINER -->
+    </div>
+    <!-- Footer End -->
+
+    <!-- Nav & Image -->
+    <script>
+      $(document).ready(function () {
+        $(window).on("scroll", function () {
+          if ($(window).scrollTop() > 50) {
+            $("#header").addClass("active-header");
+            $(".menu-link").addClass("active-menu-links");
+            $("#header-img").attr(
+              "src",
+              "https://i.ibb.co/0jM3ZvH/reverse-black.png"
+            );
+          } else {
+            //remove the background property so it comes transparent again (defined in your css)
+            $("#header").removeClass("active-header");
+            $(".menu-link").removeClass("active-menu-links");
+            $("#header-img").attr(
+              "src",
+              "https://i.ibb.co/LxGJ5gF/reverse-white.png"
+            );
+          }
+        });
+
+        // Responsive menu
+        $("#responsive-nav-bar").hide();
+
+        $("#image-button-black").click(function () {
+          $("#responsive-nav-bar").slideToggle();
+        });
+
+        $(
+          "#responsive-home-item , #responsive-features-item , #responsive-products-item , #responsive-media-item , #responsive-pricing-item"
+        ).click(function () {
+          $("#responsive-nav-bar").slideToggle(200);
+        });
+      });
+    </script>
+    <!-- Slider JS -->
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+  <script>
+    var user = "{{request.user}}";
+    function URL() {
+      //The variable to be returned
+      var URL = "/farmer/f/";
+
+      //The variables containing the respective IDs
+      var user = "{{request.user}}";
+
+      //Forming the variable to return
+      URL += user;
+      return URL;
+    }
+  </script>
+</html>
+
+<!-- <div class="single_footer single_footer_address">
+  <h4>Follow Us</h4>
+  <ul>
+    <li>
+      <a href="#"
+        >Facebook
+        <i class="fa fa-facebook fa-lg" aria-hidden="true"></i
+      ></a>
+    </li>
+    <li>
+      <a href="#"
+        >Instagram
+        <i class="fa fa-instagram fa-lg" aria-hidden="true"></i
+      ></a>
+    </li>
+    <li>
+      <a href="#"
+        >Twitter
+        <i class="fa fa-twitter fa-lg" aria-hidden="true"></i
+      ></a>
+    </li>
+    <li>
+      <a href="#"
+        >Linkedlin
+        <i class="fa fa-linkedin fa-lg" aria-hidden="true"></i
+      ></a>
+    </li>
+    <li>
+      <a href="#"
+        >YouTube
+        <i class="fa fa-youtube fa-lg" aria-hidden="true"></i
+      ></a>
+    </li>
+  </ul>
+</div> -->
+
+
